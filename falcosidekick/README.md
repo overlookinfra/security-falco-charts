@@ -41,6 +41,7 @@ It works as a single endpoint for as many as you want `Falco` instances :
 - [**AlertManager**](https://prometheus.io/docs/alerting/alertmanager/)
 - [**Opsgenie**](https://www.opsgenie.com/)
 - [**PagerDuty**](https://pagerduty.com/)
+- [**Alerta**](https://alerta.io/)
 
 ### Logs
 
@@ -142,6 +143,8 @@ The following table lists the main configurable parameters of the Falcosidekick 
 | `config.customfields`                       | a list of escaped comma separated custom fields to add to falco events, syntax is "key:value\,key:value"                                                                               |                                                                                                   |
 | `config.mutualtlsfilespath`                 | folder which will used to store client.crt, client.key and ca.crt files for mutual tls | `"/etc/certs"`
 | `config.checkcert`                          | check if ssl certificate of the output is valid                                                                                                                                        | `true`                                                                                            |
+| `config.alerta.address`                   | Alerta API  (ex: https://alerta.example.com:8080/alert) , if not `empty`, Slack output is *enabled*                                                                  |                                                                                             |
+| `config.alerta.authkey`                       | API key to use in the authorization header                                                                                                                                                                           |
 | `config.slack.webhookurl`                   | Slack Webhook URL (ex: https://hooks.slack.com/services/XXXX/YYYY/ZZZZ), if not `empty`, Slack output is *enabled*                                                                     |                                                                                                   |
 | `config.slack.footer`                       | Slack Footer                                                                                                                                                                           | https://github.com/falcosecurity/falcosidekick                                                    |
 | `config.slack.icon`                         | Slack icon (avatar)                                                                                                                                                                    | https://raw.githubusercontent.com/falcosecurity/falcosidekick/master/imgs/falcosidekick_color.png |
