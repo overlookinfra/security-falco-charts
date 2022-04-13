@@ -19,6 +19,5 @@ maintainers:
     email: cncf-falco-dev@lists.cncf.io
 dependencies:
   - name: falcosidekick
-    version: "0.4.4"
     condition: falcosidekick.enabled
-    repository: https://falcosecurity.github.io/charts
+    repository: file://../falcosidekick

@@ -4,7 +4,7 @@ image:
   registry: docker.io
   repository: falcosecurity/falco
   tag: 0.31.1
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   pullSecrets: []
 
 docker:
@@ -107,7 +107,7 @@ priorityClassName:
 
 ebpf:
   # Enable eBPF support for Falco
-  enabled: false
+  enabled: true
   path:
 
   settings:
@@ -444,6 +444,16 @@ extraVolumeMounts: []
 
 falcosidekick:
   # enable falcosidekick deployment
-  enabled: false
-  fullfqdn: false
+  enabled: true
+  image:
+    registry: gcr.io
+    repository: security-scratchpad/falcosidekick
+    tag: alerta
+    pullPolicy: Always
+  
+  config:
+    alerta:
+      address: "https://security-alerta-kwifywp4vq-uc.a.run.app/api/alert"
+      authkey: "FTM_cbt36jbtflnYpgY"
+  # fullfqdn: false
   # for configuration values, see https://github.com/falcosecurity/charts/blob/master/falcosidekick/values.yaml
